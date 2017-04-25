@@ -558,6 +558,7 @@ class script_scheduler_writer:
             command = command.replace("OUTPUT_CURRENT_DIR", "", 1)
             command = self._deleteOtherOccurances(command, "OUTPUT_CURRENT_DIR", 1)
 
+# TW: doesn't support UGE "-v environment_variable=value"
         return command
 
 

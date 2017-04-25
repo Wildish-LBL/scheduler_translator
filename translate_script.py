@@ -46,6 +46,8 @@ class translator:
                     sys.stderr.write("Command \"" + x + "\" not supported. Use --helpUGE to see all the supported commands or --force to ignore unknown commands.\n")
                     exit(1)
 
+# TW: Assumes single whitespaces.
+# TW: Terminal "-l" replacement seems very generic, wildcardy?
         command = command.replace("-N ", "JOB_NAME ", 1)  # replace the first occurrance
 
         command = command.replace("-pe pe_slots ", "RESOURCE_NODES ", 1)
@@ -135,8 +137,7 @@ class translator:
         if (type == "n"):
             ret = "NEVER "
             return ret
-        type = type.split()
-        if ("abe" in type or "ae" in type):
+        if ("a" in type and "e" in type):
             ret = "ALWAYS "
             return ret
         if ("b" in type):
